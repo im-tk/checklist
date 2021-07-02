@@ -2,17 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addItem } from '../actions';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+const placeholderText = ["Do the laundry", "Schedule doctor appointment", "Take out the trash", "Choose recipes to meal prep", "Wash the car"];
 
 class InputContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: ''
+      input: '',
+      placeholder: this.randomizePlaceholderText()
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleEnterKey = this.handleEnterKey.bind(this);
     this.handleAddItem = this.handleAddItem.bind(this);
+    this.handlePlaceholder = this.handlePlaceholder.bind(this);
+    this.randomizePlaceholderText = this.randomizePlaceholderText.bind(this);
   }
 
   handleChange(e) {
@@ -30,6 +34,16 @@ class InputContainer extends React.Component {
       this.props.addItem(this.state.input);
       this.setState({input: ''});
     }
+    this.handlePlaceholder();
+  }
+
+  handlePlaceholder() {
+    this.setState({placeholder: this.randomizePlaceholderText()})
+  }
+
+  randomizePlaceholderText(){
+    let i = Math.floor(Math.random() * placeholderText.length);
+    return(placeholderText[i] + "...");
   }
 
   render() {
@@ -37,7 +51,7 @@ class InputContainer extends React.Component {
       <div className="input-container">
         <div className="input-field">
           <input
-            placeholder="Add a task"
+            placeholder={this.state.placeholder}
             maxLength="100"
             type="text"
             onChange={this.handleChange}
