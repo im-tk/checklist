@@ -6,11 +6,12 @@ const ListReducer = (state = {list: []}, action) => {
       return {
         ...state, 
         list: [
-          ...state.list,  
           {
             text: action.item, 
+            timestamp: action.timestamp,
             done: false
-          }
+          },
+          ...state.list, 
         ] 
       };
       

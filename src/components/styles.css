@@ -1,100 +1,131 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Catamaran:600");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Abril+Fatface|Roboto");
 body, html {
   color: #000;
   background-color: #eee;
   font-size: 16px;
-  font-family: "Open Sans", Verdana, serif;
-  padding: 0;
-  margin: 0;
+  font-family: 'Roboto', Verdana, sans-serif;
 }
+
 @media (max-width: 479px) {
   body, html {
     font-size: 18px;
   }
 }
+
 body input, html input {
-  font-family: "Open Sans", Verdana, serif;
+  font-family: 'Open Sans', Verdana, sans-serif;
   font-size: 16px;
 }
 
-body .header-container {
-  display: flex;
-  justify-content: center;
-  font-size: 300%;
-  font-family: "Catamaran", Verdana, serif;
-  padding: 4rem 1rem 1rem 1rem;
+body {
+  /*
+  .input-container {
+    .input-field {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      flex-wrap: wrap;
+    }
+  }
+
+  .list-container{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    padding-top: 1rem;
+
+    ul{
+      margin: 0;
+      padding: 0;
+      width: 85%;
+      max-width: 700px;
+      
+      li {  
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        list-style: none;
+        background-color:white;
+        padding: 0.75rem;
+        border-radius: 25px;
+        margin: 0.75rem 0;
+        box-shadow: $boxShadow;
+        //transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+      }
+
+      span{
+        border: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      
+      .list-btn-check, .list-btn-delete {
+        color: #46a346;
+        cursor: pointer;
+        outline: none;
+        outline-color: transparent;
+        text-decoration: none;
+      }
+
+      .list-btn-uncheck {
+        color: getColor(greyed);
+      }
+
+      .list-btn-check {
+        color: getColor(green);
+      }
+
+      .list-btn-delete {
+        color: getColor(greyed);
+        font-size: 14px;
+        &:hover {
+          color:red;
+        }
+      }
+
+      .list-text{
+        word-wrap: break-word;
+        width: 80%;
+      }
+
+    }
+  }*/
 }
-body .input-container {
-  padding: 1rem 1rem 1rem 1rem;
-}
-body .input-container .input-field {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  flex-wrap: wrap;
-}
-body .input-container .input-field input {
+
+body input {
   border-radius: 25px;
   border-style: none;
   outline: none;
-  padding: 2rem 0.75rem;
-  margin: 0.75rem 0;
   width: 85%;
   max-width: 700px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.12);
-}
-body .list-container {
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  padding-top: 1rem;
-}
-body .list-container ul {
-  margin: 0;
-  padding: 0;
-  width: 85%;
-  max-width: 700px;
-}
-body .list-container ul li {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  list-style: none;
-  background-color: white;
-  padding: 0.75rem;
-  border-radius: 25px;
-  margin: 0.75rem 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.12);
-}
-body .list-container ul span {
-  border: none;
-  -webkit-tap-highlight-color: transparent;
-}
-body .list-container ul .list-btn-check, body .list-container ul .list-btn-delete {
-  color: #46a346;
-  cursor: pointer;
-  outline: none;
-  outline-color: transparent;
-  text-decoration: none;
-}
-body .list-container ul .list-btn-uncheck {
-  color: #ccc;
-}
-body .list-container ul .list-btn-check {
-  color: #46a346;
-}
-body .list-container ul .list-btn-delete {
-  color: #ccc;
-  font-size: 14px;
-}
-body .list-container ul .list-btn-delete:hover {
-  color: red;
-}
-body .list-container ul .list-text {
-  word-wrap: break-word;
-  width: 80%;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.12);
 }
 
+body .header-container {
+  font-size: 300%;
+  font-family: 'Abril Fatface', Garamond, serif;
+  letter-spacing: 2px;
+  padding: 4rem 1rem 1rem 1rem;
+}
+
+body .input-container, body .list-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 85%;
+  max-width: 700px;
+}
+
+body .list-timestamp {
+  font-size: 90%;
+}
 /*# sourceMappingURL=styles.css.map */

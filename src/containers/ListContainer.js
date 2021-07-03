@@ -9,7 +9,7 @@ function CheckIcon(props) {
   return (!props.isChecked ? <FontAwesomeIcon className="list-btn-uncheck" icon={['far', 'circle']} size="lg" /> :  <FontAwesomeIcon className="list-btn-check" icon="check-circle" size="lg" />)
 }
 
-function formatTimestamp(timestamp){
+/*function formatTimestamp(timestamp){
   let year = timestamp.getFullYear();
   let month = timestamp.getMonth();
   let day = timestamp.getDate();
@@ -19,7 +19,7 @@ function formatTimestamp(timestamp){
   if (hour > 12) { hour = hour % 12};
   
   return hour + ":" + min + " " + ampm + " " + months[month] + " " + day + ", " + year;   //i.e. 11:10 AM Jul 3, 2021 
-}
+}*/
 
 const ListContainer = ({ list, delItem, toggleItem }) => {
   return (
@@ -27,15 +27,14 @@ const ListContainer = ({ list, delItem, toggleItem }) => {
       <ul>
         {list.map((item, index) => (
           <li key={index}>
-            <span 
-              onClick={() => toggleItem(index)}>
-              <CheckIcon isChecked={item.done} />
-            </span>
-            <br />
             <span className="list-text">{item.text}</span>
             <span>
               <br />
-              <span>{formatTimestamp(new Date())}</span>
+              <span
+                onClick={() => toggleItem(index)}>
+                <CheckIcon isChecked={item.done} />
+              </span>
+              <span className="list-timestamp">{item.timestamp}</span>
               <span className="list-btn-delete" onClick={() => delItem(index)}> delete</span>
             </span>
           </li>

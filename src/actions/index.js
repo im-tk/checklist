@@ -1,8 +1,9 @@
 import * as types from '../constants/ActionTypes'
 
-export const addItem = (item) => ({
+export const addItem = (item, timestamp) => ({
   type: types.ADD_ITEM,
-  item
+  item,
+  timestamp
 });
 
 export const delItem = (index) => ({

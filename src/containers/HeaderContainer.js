@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class HeaderContainer extends Component {
   render() {
     return (
-      <div className="header-container">My Checklist</div>
+      <div className="header-container">Checklist</div>
     );
   }
 }
