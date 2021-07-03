@@ -3,9 +3,22 @@ import { connect } from 'react-redux';
 import { delItem, toggleItem } from '../actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-//Checks icon when clicked
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
 function CheckIcon(props) {
   return (!props.isChecked ? <FontAwesomeIcon className="list-btn-uncheck" icon={['far', 'circle']} size="lg" /> :  <FontAwesomeIcon className="list-btn-check" icon="check-circle" size="lg" />)
+}
+
+function formatTimestamp(timestamp){
+  let year = timestamp.getFullYear();
+  let month = timestamp.getMonth();
+  let day = timestamp.getDate();
+  let hour = timestamp.getHours();
+  let min = timestamp.getMinutes();
+  let ampm = hour >= 12 ? "PM" : "AM";
+  if (hour > 12) { hour = hour % 12};
+  
+  return hour + ":" + min + " " + ampm + " " + months[month] + " " + day + ", " + year;   //i.e. 11:10 AM Jul 3, 2021 
 }
 
 const ListContainer = ({ list, delItem, toggleItem }) => {
@@ -22,7 +35,7 @@ const ListContainer = ({ list, delItem, toggleItem }) => {
             <span className="list-text">{item.text}</span>
             <span>
               <br />
-              <span>{(Date().toLocaleString("en-US"))}</span>
+              <span>{formatTimestamp(new Date())}</span>
               <span className="list-btn-delete" onClick={() => delItem(index)}> delete</span>
             </span>
           </li>
@@ -31,7 +44,6 @@ const ListContainer = ({ list, delItem, toggleItem }) => {
     </div>
   );
 }
-//<span className="list-timestamp">{(Date().toLocaleString("en-US"))}</span>
 
 const mapStateToProps = (state) => {
   return {
